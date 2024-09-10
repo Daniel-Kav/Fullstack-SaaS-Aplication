@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import HttpResponse,render
 
 def home(request):
-    return HttpResponse("<h1>saas application home page</h1>")
+    return render(request, 'home.html')
