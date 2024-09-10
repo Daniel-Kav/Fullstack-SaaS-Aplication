@@ -1,4 +1,7 @@
 from django.shortcuts import HttpResponse,render
+from visits.models import PageVisit
 
 def home(request):
-    return render(request, 'home.html')
+    queryset = PageVisit.objects.all()
+    PageVisit.objects.create()
+    return render(request, 'home.html',{'queryset': queryset})
