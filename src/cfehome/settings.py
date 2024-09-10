@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+from decouple import config
 import os
 from pathlib import Path
 
@@ -20,10 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-uhf6=c8n2(h#)*tvc!w%02##*$kx!r4c62q30$&x6uagd1xuuz'
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get('DJANGO_DEBUG')).lower() == 'true'
+#DEBUG = str(os.environ.get('DJANGO_DEBUG')).lower() == 'true'
+DEBUG = config('DJANGO_DEBUG', cast = bool)
 
 print ("DEBUG", DEBUG, type(DEBUG))
 
