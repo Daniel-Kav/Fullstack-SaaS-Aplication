@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saas App</title>
+    {% include 'snippets/css.html' %}
 </head>
 <body>
     <div>
         {% block content %}
         {% endblock %}
     </div>
+
+    {% include 'snippets/js.html' %}
 </body>
 </html>
