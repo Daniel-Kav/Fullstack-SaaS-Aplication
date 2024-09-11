@@ -1,0 +1,1 @@
+print("inline is possible because")
