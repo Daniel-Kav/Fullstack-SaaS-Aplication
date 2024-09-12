@@ -20,10 +20,9 @@ def register_user(request):
     if request.method == 'POST':
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = authenticate(username= username, password=password)
 
         if request.user:
-            user.save()
+            user = User.objects.create(username= username, password=password)
             login(request, user)
             return redirect("/")
     return render(request,'auth/register.html',{})

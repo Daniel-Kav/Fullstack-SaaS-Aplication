@@ -62,7 +62,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 #apps installed
     'visits',
-    'commando'
+    'commando',
+
+    # third-party-apps
+    "allauth_ui",
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
@@ -139,6 +147,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = [
+    # ...
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ...
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+        "VERIFIED_EMAIL": True
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
